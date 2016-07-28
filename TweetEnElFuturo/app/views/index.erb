@@ -1,0 +1,58 @@
+
+  <h1 id="intro1">Welcome to twitter!</h1>
+
+<h2 id="message" style="color:<%=session[:color]%>"> <%= session[:message] %> </h2>
+
+
+
+<div id="spinner" class="spinner" >
+    <img id="img-spinner" src="spinner.gif" alt="Loading"/>
+</div>
+
+<% if !session[:name] %>
+
+<form id="form_sign_in" method="get" action="/sign_in"> 
+  <center><input id="submit_button" type="submit" value="Sign In!"></center>
+</form>
+<br>
+<br>
+
+<% else %>
+<h3 id="intro2">Escribe tu nuevo tweet del futuro: </h3>
+
+<form id="form_tweet_late" method="post" action="/tweet/later"> 
+  <center><input id="tweet_text" name="tweet_text_later" type="text" placeholder="TweetLater">
+    <input id="tweet_text_time" type="text" name="tweet_time" placeholder="Time!"><br>
+    <br>
+  <input id="submit_button" type="submit" value="Tweet!"></center>
+</form>
+<br>
+<br>
+
+<h3 id="intro3">Escribe tu nuevo tweet: </h3>
+
+<form id="form_tweet" method="post" action="/tweet/now"> 
+  <center><input id="tweet_text2" name="tweet_text2" type="text" placeholder="Tweet"><br>
+    <br>
+  <input id="submit_button" type="submit" value="Tweet!"></center>
+</form>
+<br>
+<br>
+<div id ="info_tweets"></div>
+<h3 id="intro4">Dame el twitter a buscar: </h3>
+
+<form id="form"method="post" action="/fetch"> 
+  <center><input id="handle_text" name="handle" type="text" placeholder="Twitter"><br>
+    <br>
+  <input id="submit_button" type="submit" value="Handler!"></center>
+</form>
+
+<form id="form_logout" method="get" action="/sign_out"> 
+  <center><input id="submit_button_logout" type="submit" value="Log out!"></center>
+</form>
+
+<form id="form_exit" method="get" action="/"> 
+  <center><input id="submit_button_exit" type="submit" value="Salir!"></center>
+</form>
+
+<% end %>

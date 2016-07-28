@@ -1,0 +1,25 @@
+<h1>Welcome to <%= @user.user %> twitter!</h1>
+<h2> @<%= @handle %> </h2>
+<br>
+
+
+<p id="content_tweet">
+<% count = 0 %>
+<% @user.tweets.each do |tweets| %>
+  <%= tweets.tweet %>
+  <% break if count > 9 %>
+  <% count += 1 %>
+  <br>
+  <br>
+<%end%>  
+<p>
+
+
+
+<form method="get" action="/">
+  <center>
+    <input id="submit_button" type="submit" value="Salir!">
+  </center>
+
+</form>
+
